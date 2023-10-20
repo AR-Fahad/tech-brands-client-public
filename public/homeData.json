@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brand": "Samsung",
+    "img": "https://i.ibb.co/tBWJDdG/samsung.png"
+  },
+  {
+    "id": 2,
+    "brand": "Sony",
+    "img": "https://i.ibb.co/WkGQSDT/sony.png"
+  },
+  {
+    "id": 3,
+    "brand": "Apple",
+    "img": "https://i.ibb.co/gm70yPY/apple.png"
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "img": "https://i.ibb.co/ggmpJRG/oneplus.png"
+  },
+  {
+    "id": 5,
+    "brand": "Nokia",
+    "img": "https://i.ibb.co/b7RHB0v/nokia.png"
+  },
+  {
+    "id": 6,
+    "brand": "Nothing",
+    "img": "https://i.ibb.co/yFrKY2h/nothing.png"
+  }
+]
