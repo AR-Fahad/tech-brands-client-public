@@ -9,6 +9,9 @@ import Products from "./components/Products/Products";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import Details from "./components/Details/Details";
 import MyCart from "./components/MyCart/MyCart";
+import AuthProvider from "./components/AuthProvider/AuthProvider";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -65,12 +68,22 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://tech-brands-server.vercel.app/products/${params.Id}`),
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

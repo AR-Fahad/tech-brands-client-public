@@ -1,7 +1,16 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "../../Style/style.css";
 import logo from "../../assets/logogad.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import profile from "../../assets/profile.jpg";
 const Navbar = () => {
+  const { user, userSignOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    userSignOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
   const navLinks = (
     <>
       <li>
@@ -51,9 +60,31 @@ const Navbar = () => {
           <ul className="flex gap-8 px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm bg-gradient-to-r from-purple-500 to-pink-500 border-none text-white">
-            Login
-          </a>
+          {user ? (
+            <div className="flex gap-2 items-center">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL ? user.photoURL : profile} />
+                </div>
+              </label>
+              <p>{user.displayName}</p>
+              <div>
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-sm bg-gradient-to-r from-purple-500 to-pink-500 border-none text-white"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          ) : (
+            <Link
+              className="btn btn-sm bg-gradient-to-r from-purple-500 to-pink-500 border-none text-white"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
       <Outlet></Outlet>
