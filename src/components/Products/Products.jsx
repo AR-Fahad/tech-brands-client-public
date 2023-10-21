@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Advertisement from "../Advertisement/Advertisement";
 import Cards from "../Cards/Cards";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -9,7 +9,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/products")
+    fetch("https://tech-brands-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         const filterProducts = data.filter(
@@ -37,17 +37,9 @@ const Products = () => {
       {products.length === 0 ? (
         <>
           <div className="bg-white text-black text-center py-56">
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-4xl font-bold text-purple-600">
               Currently there no products available
             </h3>
-            <br />
-            <div>
-              <Link to={"/"}>
-                <button className="border border-purple-700 text-purple-700 cursor-pointer p-3">
-                  Back to Home
-                </button>
-              </Link>
-            </div>
           </div>
         </>
       ) : (

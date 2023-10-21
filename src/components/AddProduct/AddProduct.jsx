@@ -13,7 +13,7 @@ const AddProduct = () => {
     const img = form.img.value;
     const newProduct = { name, brand, type, price, description, rate, img };
     console.log(newProduct);
-    fetch("http://localhost:3000/products", {
+    fetch("https://tech-brands-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

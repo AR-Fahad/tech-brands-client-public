@@ -8,6 +8,7 @@ import AddProduct from "./components/AddProduct/AddProduct";
 import Products from "./components/Products/Products";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import Details from "./components/Details/Details";
+import MyCart from "./components/MyCart/MyCart";
 
 const router = createBrowserRouter([
   {
@@ -23,43 +24,48 @@ const router = createBrowserRouter([
         path: "/add",
         element: <AddProduct></AddProduct>,
       },
+      {
+        path: "/cart",
+        element: <MyCart></MyCart>,
+        loader: () => fetch("https://tech-brands-server.vercel.app/cart"),
+      },
+      {
+        path: "/samsung",
+        element: <Products></Products>,
+      },
+      {
+        path: "/apple",
+        element: <Products></Products>,
+      },
+      {
+        path: "/sony",
+        element: <Products></Products>,
+      },
+      {
+        path: "/nokia",
+        element: <Products></Products>,
+      },
+      {
+        path: "/oneplus",
+        element: <Products></Products>,
+      },
+      {
+        path: "/nothing",
+        element: <Products></Products>,
+      },
+      {
+        path: "/update/:Id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) =>
+          fetch(`https://tech-brands-server.vercel.app/products/${params.Id}`),
+      },
+      {
+        path: "/details/:Id",
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`https://tech-brands-server.vercel.app/products/${params.Id}`),
+      },
     ],
-  },
-  {
-    path: "/samsung",
-    element: <Products></Products>,
-  },
-  {
-    path: "/apple",
-    element: <Products></Products>,
-  },
-  {
-    path: "/sony",
-    element: <Products></Products>,
-  },
-  {
-    path: "/nokia",
-    element: <Products></Products>,
-  },
-  {
-    path: "/oneplus",
-    element: <Products></Products>,
-  },
-  {
-    path: "/nothing",
-    element: <Products></Products>,
-  },
-  {
-    path: "/update/:Id",
-    element: <UpdateProduct></UpdateProduct>,
-    loader: ({ params }) =>
-      fetch(`http://localhost:3000/products/${params.Id}`),
-  },
-  {
-    path: "/details/:Id",
-    element: <Details></Details>,
-    loader: ({ params }) =>
-      fetch(`http://localhost:3000/products/${params.Id}`),
   },
 ]);
 

@@ -1,7 +1,7 @@
-import { Link, useLoaderData } from "react-router-dom";
-import logo from "../../assets/logogad.jpg";
+import { useLoaderData } from "react-router-dom";
 import banner from "../../assets/gadget-banner.png";
 import Marquee from "react-fast-marquee";
+import Brands from "./Brands";
 const Home = () => {
   const loaderBrands = useLoaderData();
   return (
@@ -39,24 +39,7 @@ const Home = () => {
       </div>
       <div className="grid md:grid-cols-2 gap-6 my-8 px-6">
         {loaderBrands.map((brand) => {
-          return (
-            <>
-              <Link key={brand.id} to={`/${brand.brand.toLowerCase()}`}>
-                <div
-                  data-aos="zoom-in"
-                  data-aos-duration="2000"
-                  className="p-5 bg-gray-200 rounded-lg"
-                >
-                  <div>
-                    <img className="rounded-lg" src={brand.img} alt="" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-center text-black">
-                    {brand.brand}
-                  </h3>
-                </div>
-              </Link>
-            </>
-          );
+          return <Brands key={brand.id} b={brand}></Brands>;
         })}
       </div>
 
@@ -79,35 +62,6 @@ const Home = () => {
           <div className="stat-desc text-secondary">31 tasks remaining</div>
         </div>
       </div>
-
-      <footer className="footer p-10 bg-black text-base-content">
-        <aside>
-          <div>
-            <img src={logo} alt="" />
-          </div>
-          <p>Providing reliable tech since 2018</p>
-        </aside>
-        <nav>
-          <header className="footer-title">Services</header>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
-        </nav>
-        <nav>
-          <header className="footer-title">Company</header>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <header className="footer-title">Legal</header>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </nav>
-      </footer>
     </div>
   );
 };

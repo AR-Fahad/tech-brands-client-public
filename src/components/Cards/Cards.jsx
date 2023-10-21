@@ -15,7 +15,7 @@ const Cards = ({ prod }) => {
         <p>Rating: {rate}</p>
         <p>Price: BDT{price}</p>
 
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-center">
           <Link to={`/details/${_id}`}>
             <div className="badge badge-outline cursor-pointer text-white">
               Details
