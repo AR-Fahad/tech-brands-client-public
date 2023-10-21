@@ -74,7 +74,7 @@ const Login = () => {
             {msg && <p className="text-red-700">{msg}</p>}
             <div className="form-control mt-6">
               <button className="btn btn-primary bg-gradient-to-r from-purple-500 to-pink-500 border-none">
-                Sign in
+                Login
               </button>
             </div>
             <p>
