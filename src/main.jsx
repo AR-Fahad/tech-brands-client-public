@@ -12,6 +12,7 @@ import MyCart from "./components/MyCart/MyCart";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
         loader: () => fetch("https://tech-brands-server.vercel.app/cart"),
       },
       {
@@ -58,13 +67,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/update/:Id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://tech-brands-server.vercel.app/products/${params.Id}`),
       },
       {
         path: "/details/:Id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://tech-brands-server.vercel.app/products/${params.Id}`),
       },
