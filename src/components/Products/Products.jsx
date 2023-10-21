@@ -14,8 +14,8 @@ const Products = () => {
       .then((data) => {
         const filterProducts = data.filter(
           (product) =>
-            product.brand.toLowerCase() ===
-            location.pathname.split("/").join("")
+            location.pathname.split("/").join("") ===
+            product.brand.toLowerCase()
         );
         setProducts(filterProducts);
         setLoading(false);

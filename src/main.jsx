@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Products from "./components/Products/Products";
+import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,12 @@ const router = createBrowserRouter([
   {
     path: "/nothing",
     element: <Products></Products>,
+  },
+  {
+    path: "/update/:Id",
+    element: <UpdateProduct></UpdateProduct>,
+    loader: ({ params }) =>
+      fetch(`http://localhost:3000/products/${params.Id}`),
   },
 ]);
 
