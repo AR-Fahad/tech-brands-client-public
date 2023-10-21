@@ -60,7 +60,7 @@ const Home = () => {
         })}
       </div>
 
-      <div className="stats shadow w-full mb-5">
+      <div className="stats bg-black shadow-2xl text-white w-full mb-5">
         <div className="stat">
           <div className="stat-title">Total Likes</div>
           <div className="stat-value text-primary">25.6K</div>
@@ -80,7 +80,7 @@ const Home = () => {
         </div>
       </div>
 
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10 bg-black text-base-content">
         <aside>
           <div>
             <img src={logo} alt="" />
