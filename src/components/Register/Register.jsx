@@ -1,11 +1,12 @@
 import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
@@ -39,6 +40,7 @@ const Register = () => {
               timer: 1500,
             });
             e.target.reset();
+            navigate("/");
           })
           .catch((err) => console.log(err));
       })
