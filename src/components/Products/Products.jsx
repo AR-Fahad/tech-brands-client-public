@@ -8,7 +8,6 @@ const Products = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(true);
     fetch("https://tech-brands-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
